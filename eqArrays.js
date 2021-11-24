@@ -17,14 +17,19 @@ const assertEqual = function(actual, expected) {
 // check if each element is === to one another
 
 const eqArrays = (test1, test2) => {
-  for(let i = 0; i < test1.length; i++) {  
-    //if test[i] does not equal return false
-      if((test1[i] !== test2[i])) {   
-      return false;
-      }
-    }
-    return true;
+
+  // check if the array lengths are different
+  if (test1.length !== test2.length) return false;
+
+for (let i = 0; i < test1.length; i++) {
+  //if test[i] does not equal return false
+  if ((test1[i] !== test2[i])) {
+    return false;
   }
+}
+return true;
+};
+
 
   console.log(assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true));
 
