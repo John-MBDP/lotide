@@ -2,23 +2,25 @@
 
 // TEST/ASSERTION FUNCTIONS
 const eqArrays = (test1, test2) => {
-
-    // check if the array lengths are different
-    if (test1.length !== test2.length) return false;
+  // check if the array lengths are different
+  if (test1.length !== test2.length) return false;
 
   for (let i = 0; i < test1.length; i++) {
     //if test[i] does not equal return false
-    if ((test1[i] !== test2[i])) {
+    if (test1[i] !== test2[i]) {
       return false;
     }
   }
   return true;
 };
 
-
-const assertArraysEqual = (arg1, arg2) => {
-  return `${eqArrays(arg1, arg2)}`;
-};  
+const assertArraysEqual = function (arg1, arg2) {
+  if (eqArrays(arg1, arg2)) {
+    return `✅✅✅ Assertation Passed: ${arg1} === ${arg2}`;
+  } else {
+    return `🔴🔴🔴 Assertation Failed: ${arg1} !== ${arg2}`;
+  }
+};
 
 // ACTUAL FUNCTION
 
@@ -49,12 +51,10 @@ const middle = (arr) => {
 // console.log(assertArraysEqual(middle([3, 3, 5]), ([3]))); // --> True
 
 // Take the middle number of an array if(even)
-console.log(assertArraysEqual(middle([3, 3, 4, 5]), ([3, 4, 5]))); // --> False
+console.log(assertArraysEqual(middle([3, 3, 4, 5]), [3, 4, 5])); // --> False
 
 // Take the middle number of an array if(odd)
-console.log(assertArraysEqual(middle([3, 3]), ([3]))); // --> False
-
-
+console.log(assertArraysEqual(middle([3, 3]), [3])); // --> False
 
 //Return if the length of arr is less than 2
 // console.log(middle([1])) // => []
