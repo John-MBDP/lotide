@@ -1,24 +1,7 @@
-const eqArrays = (test1, test2) => {
-  // check if the array lengths are different
-  if (test1.length !== test2.length) return false;
+"use strict";
 
-  for (let i = 0; i < test1.length; i++) {
-    //if test[i] does not equal return false
-    if (test1[i] !== test2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-// Takes in two arrays and checks if they're both equal
-const assertArraysEqual = function (arg1, arg2) {
-  if (eqArrays(arg1, arg2)) {
-    return `✅✅✅ Assertation Passed: ${arg1} === ${arg2}`;
-  } else {
-    return `🔴🔴🔴 Assertation Failed: ${arg1} !== ${arg2}`;
-  }
-};
+const eqArrays = require("./eqArrays");
+const assertArraysEqual = require("./assertArrayEqual");
 
 const letterPositions = function (sentence) {
   const noSpaces = sentence.split(" ").join("").toLowerCase();
@@ -34,7 +17,4 @@ const letterPositions = function (sentence) {
   return results;
 };
 
-const result1 = letterPositions("hello");
-
-//Test Case
-console.log(assertArraysEqual(result1.h, [1]));
+module.exports = letterPositions;

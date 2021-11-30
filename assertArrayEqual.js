@@ -1,3 +1,5 @@
+"use strict";
+
 const eqArrays = require("./eqArrays");
 
 // Takes in two arrays and checks if they're both equal
